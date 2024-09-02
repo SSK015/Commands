@@ -2,8 +2,8 @@
 
 . "$HOME/.cargo/env"
 
-cargo new env_test --lib
-cargo new helloworld
+cargo new <name> --lib
+cargo new <name>
 
 cargo check
 cargo build
