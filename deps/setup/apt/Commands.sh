@@ -27,7 +27,7 @@ sai qemu qemu-kvm virt-manager bridge-utils
 sai papi-tools libpapi-dev
 
 # cpu toolkit
-sai cpufrequtils intel-cmt-cat
+sai cpufrequtils intel-cmt-cat msr-tools
 
 # ib toolkit
 sai apt install libtbb-dev perftest infiniband-diags libpci-dev 
