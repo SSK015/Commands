@@ -5,12 +5,33 @@
 #
 # @param1: enable | disable
 
+# example: ./cpu-freq.sh enable 2801 2800
+
 if [[ ! -z $1 && $1 != "enable" && $1 != "disable" ]]; then
     echo "cpu-freq.sh invalid argument: $1" >&2
     echo ""
     echo "Usage: $(basename $0) [disable|enable]"
     exit 1
 fi
+
+if [[ "$1" == "enable" ]]; then
+    if [[ -z "$2" || -z "$3" ]]; then
+        echo "Usage: $0 enable <max_cpu_freq(Mhz)> <min_cpu_freq(Mhz)>"
+        exit 1
+    fi
+elif [[ "$1" == "disable" ]]; then
+    if [[ -z "$2" || -z "$3" ]]; then
+        echo "Usage: $0 disable <max_cpu_freq(Mhz)> <min_cpu_freq(Mhz)>"
+        exit 1
+    fi
+fi
+
+max_freq=$(expr $2 \* 1000)
+min_freq=$(expr $2 \* 1000)
+
+max_freq_default=2801000
+max_freq_default_1=2800000
+min_freq_default=1000000
 
 if [[ -e /sys/devices/system/cpu/intel_pstate ]]; then
     echo "Error: userspace governor is unavailable with intel_pstate,"
@@ -28,8 +49,8 @@ if [[ $1 == "enable" ]]; then
         #    disable it in kernel cmdline with "intel_pstate=disable".
         sudo sh -c "echo userspace > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor"
         # 2. Must set both of the max and min freq
-        sudo sh -c "echo 2801000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq"
-        sudo sh -c "echo 2800000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_min_freq"
+        sudo sh -c "echo $max_freq > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq"
+        sudo sh -c "echo $min_freq > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_min_freq"
     done
 fi
 
@@ -39,8 +60,8 @@ if [[ $1 == "disable" ]]; then
         # 1. Enable userspace governor
         sudo sh -c "echo userspace > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor"
         # 2. Must set both of the max and min freq
-        sudo sh -c "echo 2801000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq"
-        sudo sh -c "echo 1000000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_min_freq"
+        sudo sh -c "echo $max_freq > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq"
+        sudo sh -c "echo $min_freq > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_min_freq"
         # 3. Enable ondemand governor
         sudo sh -c "echo ondemand > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor"
     done
