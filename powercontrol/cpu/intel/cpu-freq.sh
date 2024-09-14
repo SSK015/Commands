@@ -27,7 +27,7 @@ elif [[ "$1" == "disable" ]]; then
 fi
 
 max_freq=$(expr $2 \* 1000)
-min_freq=$(expr $2 \* 1000)
+min_freq=$(expr $3 \* 1000)
 
 max_freq_default=2801000
 max_freq_default_1=2800000
@@ -40,6 +40,7 @@ if [[ -e /sys/devices/system/cpu/intel_pstate ]]; then
 fi
 
 cores=$(cat /proc/cpuinfo | grep processor | awk '{print $3}')
+# cores=$(seq 0 95)
 
 # Fix cpu frequency for experiment
 if [[ $1 == "enable" ]]; then
