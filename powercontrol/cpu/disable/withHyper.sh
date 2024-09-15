@@ -13,8 +13,8 @@ echo "Offline CPUs: $quarter-$(($half - 1)) and $three_quarters-$(($total_cpus -
 # 禁用 25%-50% 范围的 CPU 核心
 for ((i = quarter; i < half; i++)); do
     if [ -f /sys/devices/system/cpu/cpu$i/online ]; then
-        echo "0" | sudo tee /sys/devices/system/cpu/cpu$i/online
-        # echo "1" | sudo tee /sys/devices/system/cpu/cpu$i/online
+        # echo "0" | sudo tee /sys/devices/system/cpu/cpu$i/online
+        echo "1" | sudo tee /sys/devices/system/cpu/cpu$i/online
         # echo $i
         echo "CPU $i set to offline."
     else
@@ -25,8 +25,8 @@ done
 # 禁用 75%-100% 范围的 CPU 核心
 for ((i = three_quarters; i < total_cpus; i++)); do
     if [ -f /sys/devices/system/cpu/cpu$i/online ]; then
-        echo "0" | sudo tee /sys/devices/system/cpu/cpu$i/online
-        # echo "1" | sudo tee /sys/devices/system/cpu/cpu$i/online
+        # echo "0" | sudo tee /sys/devices/system/cpu/cpu$i/online
+        echo "1" | sudo tee /sys/devices/system/cpu/cpu$i/online
         # echo $i
         echo "CPU $i set to offline."
     else
