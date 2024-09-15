@@ -1,12 +1,15 @@
 #!/bin/bash
 
-ssh-keygen 
+sudo apt install zsh
+sudo apt install neofetch
 
-cat ~/.ssh/id_rsa.pub 
+ssh-keygen
+
+cat ~/.ssh/id_rsa.pub
 
 mkdir tools && cd tools
 
 git clone https://github.com/SSK015/dotfiles.git
 cd dotfiles/zsh/
-./getohmyzsh.sh 
-./deployzsh.sh 
+./getohmyzsh.sh
+./deployzsh.sh
