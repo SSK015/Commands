@@ -12,5 +12,5 @@ cargo build --release
 cargo run --release
 # run subdir
 cargo run --release -p $sub_dir
-
+cargo run --features "right_code"
 
