@@ -1,0 +1,336 @@
+    1  ls
+    2  ./deployzsh.sh
+    3  ls
+    4  . ~/.zshrc
+    5  ls
+    6  ..2
+    7  ls
+    8  cd dotfiles/
+    9  ls
+   10  sai fzf
+   11  neofetch
+   12  sai neofetch
+   13  ls
+   14  mkdir research
+   15  cd research/
+   16  git clone https://github.com/lingfenghsiang/Nomad.git
+   17  ls
+   18  sai gcc g++ make pkg-config time python2 openjdk-11-jre rsync unzip maven
+   19  pip3 install matplotlib pandas numpy json5
+   20  numactl -H
+   21  sai git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves zstd
+   22  ta nomad
+   23  tmux new-session -t nomad
+   24  clear
+   25  sai docker
+   26  sudo bash compile.sh
+   27  z dot
+   28  cd tmux/
+   29  ls
+   30  ./deploytmux.sh
+   31  tmux source-file ~/.tmux.conf\n
+   32  htop -d 1
+   33  l
+   34  gst
+   35  git add deploytmux.sh
+   36  gcmsg "feat: add tmux script"
+   37  git config --global user.email 18252677381@163.com
+   38  git config --global user.name ssk015
+   39  gcmsg "feat: add tmux script"
+   40  gp
+   41  numactl -H
+   42  df -h
+   43  sudo bash install.sh
+   44  cat third_party/prepare.sh
+   45  bash third_party/prepare.sh
+   46  htop -d 1
+   47  sudo mount /dev/sdb /data
+   48  ls /data
+   49  sudo mount /dev/sdb .
+   50  df -h
+   51  sudo lsblk
+   52  sudo mount /dev/sda /data
+   53  z Nomad
+   54  sudo bash src/testing_scripts/setup_system/switch_kernel.sh
+   55  last
+   56  w
+   57  history
+   58  sudo reboot
+   59  w
+   60  sync
+   61  sudo reboot
+   62  uname -r
+   63  sudo cat /etc/default/grub
+   64  sudo bash src/testing_scripts/setup_system/switch_kernel.sh
+   65  sudo cat /etc/default/grub
+   66  sudo bash src/testing_scripts/setup_system/switch_kernel.sh
+   67  sudo cat /etc/default/grub
+   68  sudo bash src/testing_scripts/setup_system/switch_kernel.sh
+   69  sudo cat /etc/default/grub
+   70  cursor ~/grub_aifm.txt
+   71  sudo reboot
+   72  uname -r
+   73  clear
+   74  neofetch
+   75  ls
+   76  numactl -H
+   77  sudo chcpu -d 20-39,60-79
+   78  numactl -H
+   79  sudo bash src/testing_scripts/setup_system/nomad_start_tiering.sh
+   80  htop -d 1
+   81  ta nomad
+   82  tmux new-session -t nomad
+   83  sudo bash src/testing_scripts/microbenchmark/run.sh
+   84  numastat
+   85  cat /sys/devices/system/node/node*/meminfo | grep -E "(Node|MemTotal|MemFree|MemUsed)"
+   86  watch -n 1 numactl --hardware
+   87  cat /sys/devices/system/node/node*/meminfo | grep -E "(Node|MemTotal|MemFree|MemUsed)"
+   88  #!/bin/bash\necho 'NUMA Node Memory Usage:'\necho '======================='\nfor node in /sys/devices/system/node/node*; do\n    node_id=$(basename "$node")\n    if [ -f "$node/meminfo" ]; then\n        total_kb=$(grep MemTotal "$node/meminfo" | awk '{print $4}')\n        free_kb=$(grep MemFree "$node/meminfo" | awk '{print $4}')\n        used_kb=$((total_kb - free_kb))\n        total_gb=$(echo "scale=2; $total_kb/1024/1024" | bc)\n        used_gb=$(echo "scale=2; $used_kb/1024/1024" | bc)\n        free_gb=$(echo "scale=2; $free_kb/1024/1024" | bc)\n        used_percent=$(echo "scale=1; $used_kb*100/$total_kb" | bc)\n        echo "$node_id: Total: ${total_gb}GB, Used: ${used_gb}GB, Free: ${free_gb}GB, Usage: ${used_percent}%"\n    fi\ndone
+   89  cat /sys/devices/system/node/node*/meminfo | grep -E "(Node|MemTotal|MemFree|MemUsed)"
+   90  echo 'NUMA Node Memory Usage:'\necho '======================='\nfor node in /sys/devices/system/node/node*; do\n    node_id=$(basename "$node")\n    if [ -f "$node/meminfo" ]; then\n        total_kb=$(grep MemTotal "$node/meminfo" | awk '{print $4}')\n        free_kb=$(grep MemFree "$node/meminfo" | awk '{print $4}')\n        used_kb=$((total_kb - free_kb))\n        total_gb=$(echo "scale=2; $total_kb/1024/1024" | bc)\n        used_gb=$(echo "scale=2; $used_kb/1024/1024" | bc)\n        free_gb=$(echo "scale=2; $free_kb/1024/1024" | bc)\n        used_percent=$(echo "scale=1; $used_kb*100/$total_kb" | bc)\n        echo "$node_id: Total: ${total_gb}GB, Used: ${used_gb}GB, Free: ${free_gb}GB, Usage: ${used_percent}%"\n    fi\ndone
+   91  uptime
+   92  w
+   93  netest
+   94  sudo wg-quick up 2g0
+   95  sudo wg-quick up wg0
+   96  netest
+   97  l
+   98  /tmp/numa_mem.sh
+   99  ta nomad
+  100  watch -n 2 /tmp/numa_mem.sh
+  101  htop -d 1
+  102  numactl -H
+  103  htop -d 1
+  104  sudo bash src/testing_scripts/microbenchmark/run.sh
+  105  sudo bash src/testing_scripts/microbenchmark/run.sh
+  106  /sys/kernel/mm/numa/demotion_enabled
+  107  cat /sys/kernel/mm/numa/demotion_enabled
+  108  /proc/sys/kernel/numa_balancing
+  109  cat /proc/sys/kernel/numa_balancing
+  110  swapoff -a
+  111  sudo swapoff -a
+  112  sudo bash src/testing_scripts/microbenchmark/run.sh
+  113  hanbu
+  114  jozi
+  115  yakusokojikili
+  116  mkdir /sys/fs/cgroup/memory/myapp
+  117  sudo mkdir /sys/fs/cgroup/memory/nomad
+  118  echo 16777216 > /sys/fs/cgroup/memory/myapp/memory.max_at_node1
+  119  ls /sys/fs/cgroup/memory/nomad
+  120  sudo sh -c 'echo 16777216 > /sys/fs/cgroup/memory/nomad/memory.limit_in_bytes'
+  121  htop -d 1
+  122  free -g
+  123  htop -d 1
+  124  sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils\nsudo adduser `id -un` libvirt\nsudo adduser `id -un` kvm
+  125  bash src/vm_scripts/run.sh -c 8
+  126  ls
+  127  df -h
+  128  mkdir /data
+  129  df -h
+  130  sudo lsblk
+  131  sudo file -s /dev/sda
+  132  blkid /dev/sda
+  133  sudo fdisk -l /dev/sda
+  134  sudo mount /dev/sda /mnt 2>/dev/null
+  135  sudo mount /dev/sda /mnt
+  136  sudo dd if=/dev/sda bs=512 count=10 | hexdump -C
+  137  sudo dd if=/dev/sda bs=1M count=10 | strings | head -20
+  138  sudo fdisk -l /dev/sda
+  139  sudo pvs /dev/sda 2>/dev/null || echo 'No LVM found'
+  140  sudo smartctl -i /dev/sda
+  141  sai smartctl
+  142  [200~sudo dd if=/dev/sda bs=1M count=1 | hexdump -C | head -5~
+  143  sudo dd if=/dev/sda bs=1M count=1 | hexdump -C | head -5
+  144  sudo dd if=/dev/zero of=/dev/sda bs=1M count=10
+  145  sudo fdisk /dev/sda
+  146  sudo mkfs.ext4 /dev/sda1
+  147  sudo fdisk /dev/sda << EOF\ng\nn\n1\n\n+100%\nw\nEOF
+  148  ls -la /dev/sda*
+  149  sudo fdisk /dev/sda
+  150  ls -la /dev/sda*
+  151  sudo mkfs.ext4 /dev/sda1
+  152  sudo mount /dev/sda1 /data
+  153  echo '/dev/sda1 /data ext4 defaults 0 2' | sudo tee -a /etc/fstab
+  154  df -h /data
+  155  cd /data/
+  156  mkdir xiayanwen
+  157  sudo mkdir xiayanwen
+  158  cd xiayanwen/
+  159  cd ..
+  160  sudo chmod -R 744
+  161  sudo chmod -R 744 xiayanwen
+  162  cd xiayanwen/
+  163  sudo chmod -r 744 xiayanwen
+  164  ls -l /data/xiayanwen\n
+  165  sudo chown -R xiayanwen:xiayanwen /data/xiayanwen
+  166  cd xiayanwen/
+  167  ls
+  168  wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+  169  qemu-img convert -f qcow2 jammy-server-cloudimg-amd64.img -O qcow2 nomad-vm.qcow2
+  170  qemu-img resize nomad-vm.qcow2 50G"
+  171  qemu-img resize nomad-vm.qcow2 50G
+  172  df h
+  173  df -h
+  174  which qemu
+  175  sai qemu
+  176  which qemu-img
+  177  ls
+  178  l
+  179  sudo ls
+  180  brctl show\n
+  181  bash src/vm_scripts/run.sh -c 8
+  182  ls -l /data/xiayanwen\n
+  183  ls -l /data/xiayanwen/\n
+  184  sudo ls /data/xiayanwen/\n
+  185  bash src/vm_scripts/run.sh -c 8
+  186  sudo bash src/vm_scripts/run.sh -c 8
+  187  htop -d 1
+  188  arp -n | grep 02:7a:41:e7:77:7d
+  189  sudo apt install libguestfs-tools
+  190  df -h
+  191  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i <<'EOF'\nwrite /etc/shadow 'ubuntu:$1$LnfRDWbU$vaML0XgLTGvjtZ4qH3tcG/:18909:0:99999:7:::'\nEOF
+  192  sudo bash src/vm_scripts/run.sh -c 4
+  193  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i <<'EOF'\nwrite /etc/shadow 'ubuntu:$1$LnfRDWbU$vaML0XgLTGvjtZ4qH3tcG/:18909:0:99999:7:::'\nEOF
+  194  sudo bash src/vm_scripts/run.sh -c 4\n
+  195  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --root-password password:password
+  196  export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
+  197  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --root-password password:password
+  198  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --password ubuntu:password
+  199  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --password root:password
+  200  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --root-password password:password\n
+  201  sudo bash src/vm_scripts/run.sh -c 4\n
+  202  sudo guestmount -a /data/xiayanwen/nomad-vm.qcow2 -i /mnt/vm
+  203  sudo mkdir /mnt/vm
+  204  df -h
+  205  sudo guestmount -a /data/xiayanwen/nomad-vm.qcow2 -i /mnt/vm
+  206  df -h
+  207  sudo sed -i 's/^ubuntu:!/ubuntu:$1$LnfRDWbU$vaML0XgLTGvjtZ4qH3tcG\/:18909:0:99999:7:::/' /mnt/vm/etc/shadow\n
+  208  sudo umount /mnt/vm
+  209  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2
+  210  sudo bash src/vm_scripts/run.sh -c 4\n
+  211  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 \\n  --run-command 'useradd -m -s /bin/bash ubuntu || true' \\n  --password ubuntu:password \\n  --run-command 'usermod -aG sudo ubuntu || true' \\n  --run-command 'mkdir -p /etc/sudoers.d' \\n  --run-command 'echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu' \\n  --selinux-relabel
+  212  ps aux | grep qemu
+  213  htop -d 1
+  214  ps aux | grep qemu-system-x86_64
+  215  sudo bash src/vm_scripts/run.sh
+  216  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2  -i
+  217  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --firstboot-command 'useradd -m -s /bin/bash testuser && echo testuser:password | chpasswd'\n
+  218  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2  -i
+  219  echo 'password' | openssl passwd -6 -stdin
+  220  MD5_HASH=$(openssl passwd -1 'password')\necho "新MD5哈希: $MD5_HASH"\n\n# 然后用guestfish替换\nsudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c "write /etc/shadow 'ubuntu:$MD5_HASH:18909:0:99999:7:::'"
+  221  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c \"write /etc/shadow 'ubuntu:\$MD5_HASH:18909:0:99999:7:::'\""
+  222  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c \"write /etc/shadow 'ubuntu:\$MD5_HASH:18909:0:99999:7:::'\"
+  223  echo MD5_HASH
+  224  echo $MD5_HASH
+  225  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2
+  226  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i
+  227  \n      ‘man’ to read the manual
+  228  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c 'cat /etc/shadow | grep ^ubuntu'
+  229  sudo bash src/vm_scripts/run.sh -c 8
+  230  cp src/vm_scripts/run.sh src/vm_scripts/run_debug.sh\n# 编辑run_debug.sh，在qemu命令最后添加：\n# -append 'console=ttyS0 root=/dev/sda1 init=/bin/bash'
+  231  sudo bash src/vm_scripts/run_debug.sh -c 4
+  232  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 \\\n  --run-command 'mkdir -p /etc/systemd/system/getty@ttyS0.service.d' \\\n  --run-command 'printf \"[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin ubuntu --noclear %%I \$TERM\n\" > /etc/systemd/system/getty@ttyS0.service.d/autologin.conf' \\\n  --selinux-relabel
+  233  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2
+  234  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c '\nmkdir /etc/systemd/system/getty@ttyS0.service.d\nwrite /etc/systemd/system/getty@ttyS0.service.d/autologin.conf "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin ubuntu --noclear %I xterm-256color\n"\n'
+  235  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2 -i -c 'cat /etc/systemd/system/getty@ttyS0.service.d/autologin.conf'
+  236  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --root-password password:123456
+  237  history
+  238  sudo bash src/vm_scripts/run.sh -c 8
+  239  history
+  240  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2
+  241  sudo bash src/vm_scripts/run.sh -c 8
+  242  clear
+  243  sudo bash  src/vm_scripts/run.sh -c 8
+  244  sudo bash  src/vm_scripts/run_single.sh -c 8
+  245  sudo guestfish -a /data/xiayanwen/nomad-vm.qcow2
+  246  sudo bash  src/vm_scripts/run_single.sh -c 8
+  247  sudo bash src/vm_scripts/run_final.sh -c 8
+  248  sudo bash src/vm_scripts/run_fast.sh -c 8
+  249  guestfish --ro -a /data/xiayanwen/nomad-vm.qcow2 -i cat /etc/shadow | grep ubuntu
+  250  sudo bash src/vm_scripts/run.sh -c 8
+  251  cat > /tmp/fix_vm.sh 
+  252  cd /data/xiayanwen/
+  253  ls
+  254  sudo ls
+  255  sudo rm nomad-vm.qcow2
+  256  sudo virt-customize -a /data/xiayanwen/jammy-server-cloudimg-amd64.img --root-password password:123456
+  257  sudo virt-customize -a /data/xiayanwen/jammy-server-cloudimg-amd64.img --password ubuntu:123456
+  258  sudo virt-customize -a /data/xiayanwen/nomad-vm.qcow2 --password ubuntu:password
+  259  sudo virt-customize -a /data/xiayanwen/jammy-server-cloudimg-amd64.img --password ubuntu:password
+  260  sudo virt-customize -a /data/xiayanwen/jammy-server-cloudimg-amd64.img --password ubuntu:123456
+  261  qemu-img convert -f qcow2 jammy-server-cloudimg-amd64.img -O qcow2 nomad-vm.qcow2
+  262  sudo bash src/vm_scripts/run.sh -c 8
+  263  qemu-img resize nomad-vm.qcow2 50G
+  264  qemu-img resize /data/xiayanwen/nomad-vm.qcow2 50G
+  265  sudo bash src/vm_scripts/run.sh -c 8
+  266  df -h
+  267  htop -d 1
+  268  df -h
+  269  ls
+  270  tmux new-session -t vm
+  271  ls
+  272  sudo bash src/vm_scripts/run.sh -c 16
+  273  df -h
+  274  cat ~/.ssh/authorized_keys
+  275  ssh-keygen -t ed25519
+  276  cat ~/.ssh/id_ed25519.pub
+  277  ssh -v ubuntu@192.168.122.239 
+  278  ta nomad
+  279  exity
+  280  exit
+  281  tmux ls
+  282  ta vm-1
+  283  qemu-img resize /data/xiayanwen/nomad-vm.qcow2 150G
+  284  sudo bash src/vm_scripts/run.sh -c 16
+  285  lscpu
+  286  ls
+  287  htop -d 1
+  288  s
+  289  mkdir tools
+  290  cd tools/
+  291  l
+  292  wget https://downloadmirror.intel.com/866182/mlc_v3.12.tgz
+  293  extract mlc_v3.12.tgz
+  294  ls
+  295  cd mlc_v3.12/
+  296  ls
+  297  cd Linux
+  298  ls
+  299  ./mlc
+  300  ls
+  301  sudo bash src/vm_scripts/run.sh -c 16
+  302  z Nomad
+  303  sudo bash src/vm_scripts/run.sh -c 16
+  304  numactl -H
+  305  ./mlc
+  306  htop -d 1
+  307  exit
+  308  htop -d 1
+  309  numactl -H
+  310  htop -d 1
+  311  numactl -H
+  312  htop -d 1
+  313  df -h
+  314  sudo  bash src/vm_scripts/run.sh -c 16
+  315  sudo  bash src/vm_scripts/run.sh -c 16
+  316  sudo adduser dengbenyong
+  317  ls
+  318  su dengbenyong
+  319  ssh -v ubuntu@192.168.122.239 
+  320  vim src/vm_scripts/run.sh
+  321  sudo bash src/vm_scripts/run.sh -c 16
+  322  vim src/vm_scripts/run.sh
+  323  sudo bash src/vm_scripts/run.sh -c 16
+  324  l
+  325  l
+  326  w
+  327  z /home/xiayanwen/tools/dotfiles
+  328  ..
+  329  netest
+  330  gp
+  331  z tools
+  332  git clone https://github.com/SSK015/Commands.git
+  333  cd Commands/
+  334  ls
+  335  ls sysmaintain/storage/Commands.sh
+  336  cursor sysmaintain/storage/Commands.sh

@@ -30,4 +30,5 @@ sudo vgdisplay ubuntu-vg
 
 sudo pvdisplay
 
+qemu-img resize <img_path> 150G
 
